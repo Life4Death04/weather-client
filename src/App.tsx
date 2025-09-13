@@ -1,9 +1,9 @@
 import './App.css'
-import { WeatherCard } from './components/WeatherCard';
+import { ForecastTable } from './components/ForecastTable'
 
 function App() {
   return (
-    <WeatherCard />
+    <ForecastTable />
   )
 }
 
