@@ -1,9 +1,9 @@
 import './App.css'
-import { ForecastTable } from './components/ForecastTable'
+import { MainLayout } from './layouts/MainLayout'
 
 function App() {
   return (
-    <ForecastTable />
+    <MainLayout />
   )
 }
 

@@ -5,8 +5,8 @@ import CloudIcon from '@mui/icons-material/Cloud';
 
 export function ForecastTable(){
     return (
-        <TableContainer component={Paper} sx={{ maxWidth: 600, boxShadow: 3 }}>
-            <Typography variant="h3" gutterBottom component="div" sx={{ p: 2, pb: 0, fontWeight: 'bold', fontSize: { xs: '1rem', sm: '1.5rem' } }}>
+        <TableContainer component={Paper} sx={{ maxWidth: { xs: '100%', sm: 400, lg: 700 }, height: { xs: 'fit-content', md:'100%'}, boxShadow: 3 }}>
+            <Typography variant="h3" gutterBottom component="div" sx={{ p: 2, px: { xs: 2, sm: 4 }, pb: 0, fontWeight: 'bold', fontSize: { xs: '1rem', sm: '1.5rem' } }}>
                 7-Day Weather Forecast
             </Typography>
         <Table>
@@ -31,6 +31,34 @@ export function ForecastTable(){
                         <CloudIcon sx={{ verticalAlign: 'middle', mr: 0.5, color: 'gray' }} />
                     </TableCell>
                     <TableCell align="center" sx={{ opacity: 0.8, fontWeight: 'bold', fontSize: { xs: '0.7rem', sm: '1rem' } }}>72°F / 54°F</TableCell>
+                </TableRow>
+                <TableRow key={3}>
+                    <TableCell align="center" sx={{ opacity: 0.8, fontWeight: 'bold', fontSize: { xs: '0.7rem', sm: '1rem' } }}>Wednesday</TableCell>
+                    <TableCell align="center" sx={{ opacity: 0.8, fontWeight: 'bold', fontSize: { xs: '0.7rem', sm: '1rem' } }}>
+                        <WaterDropIcon sx={{ verticalAlign: 'middle', mr: 0.5, color: 'blue' }} />
+                    </TableCell>
+                    <TableCell align="center" sx={{ opacity: 0.8, fontWeight: 'bold', fontSize: { xs: '0.7rem', sm: '1rem' } }}>70°F / 56°F</TableCell>
+                </TableRow>
+                <TableRow key={3}>
+                    <TableCell align="center" sx={{ opacity: 0.8, fontWeight: 'bold', fontSize: { xs: '0.7rem', sm: '1rem' } }}>Wednesday</TableCell>
+                    <TableCell align="center" sx={{ opacity: 0.8, fontWeight: 'bold', fontSize: { xs: '0.7rem', sm: '1rem' } }}>
+                        <WaterDropIcon sx={{ verticalAlign: 'middle', mr: 0.5, color: 'blue' }} />
+                    </TableCell>
+                    <TableCell align="center" sx={{ opacity: 0.8, fontWeight: 'bold', fontSize: { xs: '0.7rem', sm: '1rem' } }}>70°F / 56°F</TableCell>
+                </TableRow>
+                <TableRow key={3}>
+                    <TableCell align="center" sx={{ opacity: 0.8, fontWeight: 'bold', fontSize: { xs: '0.7rem', sm: '1rem' } }}>Wednesday</TableCell>
+                    <TableCell align="center" sx={{ opacity: 0.8, fontWeight: 'bold', fontSize: { xs: '0.7rem', sm: '1rem' } }}>
+                        <WaterDropIcon sx={{ verticalAlign: 'middle', mr: 0.5, color: 'blue' }} />
+                    </TableCell>
+                    <TableCell align="center" sx={{ opacity: 0.8, fontWeight: 'bold', fontSize: { xs: '0.7rem', sm: '1rem' } }}>70°F / 56°F</TableCell>
+                </TableRow>
+                <TableRow key={3}>
+                    <TableCell align="center" sx={{ opacity: 0.8, fontWeight: 'bold', fontSize: { xs: '0.7rem', sm: '1rem' } }}>Wednesday</TableCell>
+                    <TableCell align="center" sx={{ opacity: 0.8, fontWeight: 'bold', fontSize: { xs: '0.7rem', sm: '1rem' } }}>
+                        <WaterDropIcon sx={{ verticalAlign: 'middle', mr: 0.5, color: 'blue' }} />
+                    </TableCell>
+                    <TableCell align="center" sx={{ opacity: 0.8, fontWeight: 'bold', fontSize: { xs: '0.7rem', sm: '1rem' } }}>70°F / 56°F</TableCell>
                 </TableRow>
                 <TableRow key={3}>
                     <TableCell align="center" sx={{ opacity: 0.8, fontWeight: 'bold', fontSize: { xs: '0.7rem', sm: '1rem' } }}>Wednesday</TableCell>

@@ -4,9 +4,9 @@ import SunnyIcon from '@mui/icons-material/Sunny';
 
 export function WeatherCard() {
   return (
-    <Card sx={{maxWidth: 350, color: 'text.primary', boxShadow: 3 }}>
+    <Card sx={{width: { xs: '100%' }, maxWidth: 350, color: 'text.primary', boxShadow: 3, height: { xs: 'fit-content', md:'100%'}, px: { xs: 2, sm: 4 } }}>
       <CardContent>
-        <Typography variant="h3" component="div" sx={{ fontWeight: '600', fontSize: { xs: '2rem', sm: '2.5rem' } }}>
+        <Typography variant="h3" component="div" sx={{ fontWeight: '600', fontSize: { xs: '1.5rem', sm: '2rem' } }}>
           San Francisco
         </Typography>
         <Typography variant="subtitle1" component="div" sx={{ opacity: 0.7, fontSize: { xs: '0.8rem', sm: '1rem' } }}>
