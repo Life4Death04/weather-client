@@ -1,8 +1,14 @@
 import { Card, CardContent, Typography, Box, Divider } from '@mui/material';
 
 import SunnyIcon from '@mui/icons-material/Sunny';
+import type { CurrentWeatherData } from '../types';
 
-export function WeatherCard() {
+type WeatherCardProps = {
+  values: CurrentWeatherData | undefined;
+
+}
+
+export function WeatherCard({ values }: WeatherCardProps) {
   return (
     <Card sx={{width: { xs: '100%' }, maxWidth: 350, color: 'text.primary', boxShadow: 3, height: { xs: 'fit-content', md:'100%'}, px: { xs: 2, sm: 4 } }}>
       <CardContent>
@@ -15,7 +21,10 @@ export function WeatherCard() {
         <Box sx={{ textAlign: 'center', my: 4 }}>
           <SunnyIcon sx={{ fontSize: { xs: '6rem', sm: '8rem' }, color: '#1293ec' }} />
           <Typography variant="body2" sx={{ ml: 1, fontWeight: 'bold', fontSize: { xs: '2rem', sm: '4rem' } }}>
-            25°C
+            {`
+              ${values?.current.temperature_2m ?? '--'} 
+              ${values?.units.temperature_2m ?? '°C'}
+            `}
           </Typography>
           <Typography variant="body2" sx={{ ml: 1, opacity: 0.7, fontSize: { xs: '0.8rem', sm: '1.2rem' } }}>
             Partly Cloudy
@@ -28,7 +37,10 @@ export function WeatherCard() {
                 Humidity
             </Typography>
             <Typography variant="body2" sx={{ opacity: 0.7, fontSize: { xs: '0.8rem', sm: '1rem' } }}>
-                60%
+                {`
+                  ${values?.current.relative_humidity_2m ?? '--'} 
+                  ${values?.units.relative_humidity_2m ?? '%'}
+                `}
             </Typography>
             </Box>
             <Box sx={{ textAlign: 'center' }}>
