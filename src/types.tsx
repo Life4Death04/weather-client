@@ -5,8 +5,14 @@ export type NavbarProps = {
 }
 
 export type GeocodingResponse = {
-    lat: number;
-    lng: number;
+    coords: {
+        lat: number;
+        lng: number;
+    },
+    location: {
+        country: string;
+        city: string;
+    }
 }
 
 export type WeatherResult = {
