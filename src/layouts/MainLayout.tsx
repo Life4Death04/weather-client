@@ -23,11 +23,12 @@ import { WeatherCard } from '../components/WeatherCard'
 import { ForecastTable } from '../components/ForecastTable'
 import { Container } from '@mui/material'
 import { getWeatherByName } from '../utils/getWeatherByName'
-import type { CurrentWeatherData } from '../types'
+import type { CurrentWeatherData, ForecastData } from '../types'
 
 export function MainLayout(){
     const [inputValue, setInputValue] = useState('')
     const [currentWeather, setCurrentWeather] = useState<CurrentWeatherData>()
+    const [forecast, setForecast] = useState<ForecastData>()
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value)
@@ -36,6 +37,7 @@ export function MainLayout(){
     const handleSearch = async () => {
         const data = await getWeatherByName(inputValue)
         setCurrentWeather(data.currentWeather)
+        setForecast(data.forecast)
     }
     return (
         <>
@@ -48,7 +50,9 @@ export function MainLayout(){
             <WeatherCard 
                 values={currentWeather}
             />
-            <ForecastTable />
+            <ForecastTable 
+                values={forecast}
+            />
             </Container>
         </>
     )
