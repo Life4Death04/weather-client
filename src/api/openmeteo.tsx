@@ -3,7 +3,7 @@ import type { WeatherResult } from '../types';
 const apiUrl = import.meta.env.VITE_WEATHER_URL;
 
 export async function fetchWeather(latitude: number, longitude: number): Promise<WeatherResult> {
-    const params = `?latitude=${latitude}&longitude=${longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min&current=temperature_2m,relative_humidity_2m,weather_code&format=json`;
+    const params = `?latitude=${latitude}&longitude=${longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&format=json`;
 
     try {
         const rawResponse = await axios.get(`${apiUrl}${params}`);

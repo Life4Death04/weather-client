@@ -22,6 +22,7 @@ export type WeatherResult = {
         temperature_2m: number;
         time: Date;
         weather_code: number;
+        wind_speed_10m: number;
     },
     current_units: {
         interval: string;
@@ -29,6 +30,7 @@ export type WeatherResult = {
         temperature_2m: string;
         time: string;
         weather_code: string;
+        wind_speed_10m: string;
     },
     daily: {
         temperature_2m_max: number[];

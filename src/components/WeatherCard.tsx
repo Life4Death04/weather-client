@@ -46,8 +46,10 @@ export function WeatherCard({ values }: WeatherCardProps) {
                 Wind
             </Typography>
             <Typography variant="body2" sx={{ opacity: 0.7, fontSize: { xs: '0.8rem', sm: '1rem' } }}>
-                15 km/h
-            </Typography>
+                {`
+                  ${values?.current.wind_speed_10m ?? '--'} 
+                  ${values?.units.wind_speed_10m ?? 'km/h'}
+            `}</Typography>
             </Box>   
         </Box>
       </CardContent>
