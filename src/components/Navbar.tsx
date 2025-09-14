@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Typography, Box } from '@mui/material';
+import { AppBar, Toolbar, Typography, Box, IconButton } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 import CloudIcon from '@mui/icons-material/Cloud';
 import InputBase from '@mui/material/InputBase';
@@ -6,6 +6,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
+  display: 'flex',
   borderRadius: theme.shape.borderRadius,
   border: '1px solid #ccc',
   color: '#555',
@@ -24,23 +25,11 @@ const Search = styled('div')(({ theme }) => ({
   },
 }));
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
   width: '100%',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     [theme.breakpoints.up('xs')]: {
         fontSize: '0.8rem',
@@ -57,7 +46,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export function Navbar(){
+type NavbarProps = {
+    inputValue: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onSubmit: () => void;
+}
+export function Navbar({ inputValue, onChange, onSubmit }: NavbarProps){
     return(
         <AppBar position="static" sx={{ bgcolor: 'white'}}>
                 <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -68,10 +62,15 @@ export function Navbar(){
                         </Typography>
                     </Box>
                     <Search>
-                        <SearchIconWrapper>
-                            <SearchIcon />
-                        </SearchIconWrapper>
+                        <IconButton 
+                          aria-label="search"
+                          onClick={onSubmit}
+                        >
+                          <SearchIcon />
+                        </IconButton>
                         <StyledInputBase
+                            value={inputValue}
+                            onChange={onChange}
                             placeholder="Search for city..."
                             inputProps={{ 'aria-label': 'search' }}
                         />
