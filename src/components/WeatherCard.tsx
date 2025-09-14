@@ -1,6 +1,7 @@
 import { Card, CardContent, Typography, Box, Divider } from '@mui/material';
-import type { CurrentWeatherData } from '../types';
 import { getWeatherIcon } from '../utils/getWeatherIcon';
+import { getWeatherDescription } from '../utils/getWeatherDescription';
+import type { CurrentWeatherData } from '../types';
 
 type WeatherCardProps = {
   values: CurrentWeatherData | undefined;
@@ -11,7 +12,7 @@ export function WeatherCard({ values }: WeatherCardProps) {
     <Card sx={{width: { xs: '100%' }, maxWidth: 350, color: 'text.primary', boxShadow: 3, height: { xs: 'fit-content', md:'100%'}, px: { xs: 2, sm: 4 } }}>
       <CardContent>
         <Typography variant="h3" component="div" sx={{ fontWeight: '600', fontSize: { xs: '1.5rem', sm: '2rem' } }}>
-          {values?.city ?? undefined}, {values?.country ?? undefined}
+          {values?.city ?? ''}{values?.country ?? ''}
         </Typography>
         <Typography variant="subtitle1" component="div" sx={{ opacity: 0.7, fontSize: { xs: '0.8rem', sm: '1rem' } }}>
           {new Date(values?.current.time ?? '').toLocaleString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) ?? '--'}
@@ -25,7 +26,7 @@ export function WeatherCard({ values }: WeatherCardProps) {
             `}
           </Typography>
           <Typography variant="body2" sx={{ ml: 1, opacity: 0.7, fontSize: { xs: '0.8rem', sm: '1.2rem' } }}>
-            Partly Cloudy
+            {getWeatherDescription(values?.current.weather_code ?? -1)}
           </Typography>
         </Box>
         <Divider />
