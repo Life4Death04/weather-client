@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import { fetchGeocoding } from '../api/geocoding'
-import { fetchWeather } from '../api/openmeteo'
 
 // Components
 import { Navbar } from '../components/Navbar'
@@ -15,7 +13,7 @@ export function MainLayout(){
         setInputValue(e.target.value)
     }
 
-    const handleSearch = async () => {
+    const handleSearch =  () => {
         console.log('Searching for:', inputValue);
     }
     return (
