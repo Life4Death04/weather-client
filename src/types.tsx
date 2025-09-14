@@ -44,3 +44,18 @@ export type WeatherResult = {
     timezone_abbreviation: string;
     utc_offset_seconds: number;
 }
+
+export type CurrentWeatherData = {
+    current: WeatherResult['current'];
+    units: WeatherResult['current_units'];
+}
+
+export type ForecastData = {
+    daily: WeatherResult['daily'];
+    units: WeatherResult['daily_units'];
+}
+
+export type getWeatherByNameResponse = {
+    currentWeather: CurrentWeatherData;
+    forecast: ForecastData;
+}
