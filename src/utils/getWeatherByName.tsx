@@ -22,6 +22,5 @@ export async function getWeatherByName(cityName: string): Promise<getWeatherByNa
         daily: weather.daily, 
         units: weather.daily_units 
     };
-    console.log(forecast);
     return { currentWeather, forecast };
 }

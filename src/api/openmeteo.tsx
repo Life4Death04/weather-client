@@ -8,7 +8,6 @@ export async function fetchWeather(latitude: number, longitude: number): Promise
     try {
         const rawResponse = await axios.get(`${apiUrl}${params}`);
         const response = rawResponse.data;
-        console.log(response);
         return response;
     } catch (error) {
         if(axios.isAxiosError(error)) {

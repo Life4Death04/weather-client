@@ -46,7 +46,7 @@ export function MainLayout(){
                 onChange={handleChange}
                 onSubmit={handleSearch}
             />
-            <Container sx={{ height: '75vh', display: 'flex', flexWrap: 'wrap', justifyContent: { xs: 'center', lg: 'space-between' }, gap: 3.5, alignItems: 'center', mt: 4 }}>
+            <Container sx={{ height: '78vh', maxHeight: '565px', display: 'flex', flexWrap: 'wrap', justifyContent: { xs: 'center', lg: 'space-between' }, gap: 3.5, alignItems: 'center', mt: 4 }}>
             <WeatherCard 
                 values={currentWeather}
             />
