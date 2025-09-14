@@ -1,8 +1,13 @@
+// WeatherCard
+// Displays current weather summary for a selected city.
+// Relies on normalized CurrentWeatherData, plus utility functions for icon and description.
+
 import { Card, CardContent, Typography, Box, Divider } from '@mui/material';
 import { getWeatherIcon } from '../utils/getWeatherIcon';
 import { getWeatherDescription } from '../utils/getWeatherDescription';
 import type { CurrentWeatherData } from '../types';
 
+/** Props for WeatherCard */
 type WeatherCardProps = {
   values: CurrentWeatherData | undefined;
 }
@@ -11,12 +16,17 @@ export function WeatherCard({ values }: WeatherCardProps) {
   return (
     <Card sx={{width: { xs: '100%' }, maxWidth: 350, color: 'text.primary', boxShadow: 3, height: { xs: 'fit-content', md:'100%'}, px: { xs: 2, sm: 4 } }}>
       <CardContent>
+        {/* City and country (may be empty before first search) */}
         <Typography variant="h3" component="div" sx={{ fontWeight: '600', fontSize: { xs: '1.5rem', sm: '2rem' } }}>
           {values?.city ?? ''}{values?.country ?? ''}
         </Typography>
+
+        {/* Friendly date (fallbacks to '--' if absent) */}
         <Typography variant="subtitle1" component="div" sx={{ opacity: 0.7, fontSize: { xs: '0.8rem', sm: '1rem' } }}>
           {new Date(values?.current.time ?? '').toLocaleString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) ?? '--'}
         </Typography>
+
+        {/* Icon + temperature + description */}
         <Box sx={{ textAlign: 'center', my: 4 }}>
           {getWeatherIcon({ weatherCode: values?.current.weather_code ?? -1, adaptativeSize: true })}
           <Typography variant="body2" sx={{ ml: 1, fontWeight: 'bold', fontSize: { xs: '2rem', sm: '4rem' } }}>
@@ -30,6 +40,8 @@ export function WeatherCard({ values }: WeatherCardProps) {
           </Typography>
         </Box>
         <Divider />
+
+        {/* Secondary metrics */}
         <Box sx={{ display: 'flex', justifyContent: 'space-around', mt: 2 }}>
           <Box sx={{ textAlign: 'center' }}>
             <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: { xs: '0.8rem', sm: '1rem' } }}>

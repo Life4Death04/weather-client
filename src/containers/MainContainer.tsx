@@ -1,20 +1,12 @@
 import { useState } from 'react'
 
 /**
- * TODO:
- * - Make utils for getting the weather icon based on the weather code
- * 
- * - Add name of the city to the WeatherCard (City, Country)
- * - Transform the Date string to a more readable format ()e.g. Today, 10:00 AM
- * 
- * - Add wind to the weather card (need to modify the API call and types)
- * 
- * - Add Forecast data to the layout
- * 
- * - See possible bug about days in forecast
- * 
- * - Add optimistic updates (Loading state)
- * - Add error handling (Error state)
+ * MainContainer
+ * Top-level UI container responsible for coordinating search input and data fetching.
+ * Responsibilities:
+ * - Holds controlled input state
+ * - Orchestrates search via getWeatherByName (geocoding + weather)
+ * - Passes normalized data down to presentational components
  */
 
 // Components
@@ -30,10 +22,12 @@ export function MainContainer(){
     const [currentWeather, setCurrentWeather] = useState<CurrentWeatherData>()
     const [forecast, setForecast] = useState<ForecastData>()
 
+    // Keep Navbar controlled by lifting value and handler here
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value)
     }
 
+    // Compose calls via util; update state with normalized results
     const handleSearch = async () => {
         const data = await getWeatherByName(inputValue)
         setCurrentWeather(data.currentWeather)
@@ -46,6 +40,7 @@ export function MainContainer(){
                 onChange={handleChange}
                 onSubmit={handleSearch}
             />
+            {/* Responsive layout holding the two primary widgets */}
             <Container sx={{ height: '78vh', maxHeight: '565px', display: 'flex', flexWrap: 'wrap', justifyContent: { xs: 'center', lg: 'space-between' }, gap: 3.5, alignItems: 'center', mt: 4 }}>
             <WeatherCard 
                 values={currentWeather}
