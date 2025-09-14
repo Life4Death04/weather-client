@@ -1,11 +1,9 @@
 import { Card, CardContent, Typography, Box, Divider } from '@mui/material';
-
-import SunnyIcon from '@mui/icons-material/Sunny';
 import type { CurrentWeatherData } from '../types';
+import { getWeatherIcon } from '../utils/getWeatherIcon';
 
 type WeatherCardProps = {
   values: CurrentWeatherData | undefined;
-
 }
 
 export function WeatherCard({ values }: WeatherCardProps) {
@@ -13,13 +11,13 @@ export function WeatherCard({ values }: WeatherCardProps) {
     <Card sx={{width: { xs: '100%' }, maxWidth: 350, color: 'text.primary', boxShadow: 3, height: { xs: 'fit-content', md:'100%'}, px: { xs: 2, sm: 4 } }}>
       <CardContent>
         <Typography variant="h3" component="div" sx={{ fontWeight: '600', fontSize: { xs: '1.5rem', sm: '2rem' } }}>
-          San Francisco
+          {values?.city ?? undefined} {values?.country ?? undefined}
         </Typography>
         <Typography variant="subtitle1" component="div" sx={{ opacity: 0.7, fontSize: { xs: '0.8rem', sm: '1rem' } }}>
-          Today, 10:00 AM
+          {new Date(values?.current.time ?? '').toLocaleString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) ?? '--'}
         </Typography>
         <Box sx={{ textAlign: 'center', my: 4 }}>
-          <SunnyIcon sx={{ fontSize: { xs: '6rem', sm: '8rem' }, color: '#1293ec' }} />
+          {getWeatherIcon({ weatherCode: values?.current.weather_code ?? -1, adaptativeSize: true })}
           <Typography variant="body2" sx={{ ml: 1, fontWeight: 'bold', fontSize: { xs: '2rem', sm: '4rem' } }}>
             {`
               ${values?.current.temperature_2m ?? '--'} 

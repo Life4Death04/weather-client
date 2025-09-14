@@ -54,6 +54,8 @@ export type WeatherResult = {
 export type CurrentWeatherData = {
     current: WeatherResult['current'];
     units: WeatherResult['current_units'];
+    country: string;
+    city: string;
 }
 
 export type ForecastData = {

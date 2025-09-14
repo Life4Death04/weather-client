@@ -8,10 +8,11 @@ import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
 
 type getWeatherIconProps = {
     weatherCode: number;
+    adaptativeSize?: boolean;
 };
 
-export function getWeatherIcon({ weatherCode }: getWeatherIconProps): ReactNode {
-    const baseStyle = { verticalAlign: 'middle', mr: 0.5 };
+export function getWeatherIcon({ weatherCode, adaptativeSize }: getWeatherIconProps): ReactNode {
+    let baseStyle = { verticalAlign: 'middle', mr: 0.5, fontSize: adaptativeSize ? { xs: '6rem', sm: '8rem' } : '2rem' };
     switch (weatherCode) {
         case 0:
         case 1:
