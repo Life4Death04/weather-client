@@ -37,7 +37,7 @@ export function getWeatherIcon({ weatherCode, adaptativeSize }: getWeatherIconPr
         case 80:
         case 81:
         case 82:
-            return <BeachAccessOutlinedIcon sx={baseStyle} />;
+            return <BeachAccessOutlinedIcon sx={{ ...baseStyle, color: '#1a92f5ff' }} />;
 
         case 71:
         case 73:
