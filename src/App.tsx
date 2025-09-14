@@ -1,9 +1,9 @@
 import './App.css'
-import { MainLayout } from './layouts/MainLayout'
+import { MainContainer } from './containers/MainContainer'
 
 function App() {
   return (
-    <MainLayout />
+    <MainContainer />
   )
 }
 

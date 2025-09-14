@@ -25,7 +25,7 @@ import { Container } from '@mui/material'
 import { getWeatherByName } from '../utils/getWeatherByName'
 import type { CurrentWeatherData, ForecastData } from '../types'
 
-export function MainLayout(){
+export function MainContainer(){
     const [inputValue, setInputValue] = useState('')
     const [currentWeather, setCurrentWeather] = useState<CurrentWeatherData>()
     const [forecast, setForecast] = useState<ForecastData>()
