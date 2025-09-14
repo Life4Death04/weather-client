@@ -1,11 +1,8 @@
 import axios from 'axios';
+import type { GeocodingResponse } from '../types';
 const apiKey = import.meta.env.VITE_GEOCODE_API_KEY;
 const apiUrl = import.meta.env.VITE_GEOCODING_URL;
 
-type GeocodingResponse = {
-    lat: number;
-    lng: number;
-}
 
 export async function fetchGeocoding(query: string): Promise<GeocodingResponse> {
     try {

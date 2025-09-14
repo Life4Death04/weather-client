@@ -3,6 +3,7 @@ import { styled, alpha } from '@mui/material/styles';
 import CloudIcon from '@mui/icons-material/Cloud';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import type { NavbarProps } from '../types';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -46,11 +47,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-type NavbarProps = {
-    inputValue: string;
-    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    onSubmit: () => void;
-}
 export function Navbar({ inputValue, onChange, onSubmit }: NavbarProps){
     return(
         <AppBar position="static" sx={{ bgcolor: 'white'}}>

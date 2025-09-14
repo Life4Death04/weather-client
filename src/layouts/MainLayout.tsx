@@ -5,6 +5,7 @@ import { Navbar } from '../components/Navbar'
 import { WeatherCard } from '../components/WeatherCard'
 import { ForecastTable } from '../components/ForecastTable'
 import { Container } from '@mui/material'
+import { getWeatherByName } from '../utils/getWeatherByName'
 
 export function MainLayout(){
     const [inputValue, setInputValue] = useState('')
@@ -13,7 +14,8 @@ export function MainLayout(){
         setInputValue(e.target.value)
     }
 
-    const handleSearch = async () => {
+    const handleSearch = () => {
+        getWeatherByName(inputValue)
     }
     return (
         <>
