@@ -13,8 +13,7 @@ export function MainLayout(){
         setInputValue(e.target.value)
     }
 
-    const handleSearch =  () => {
-        console.log('Searching for:', inputValue);
+    const handleSearch = async () => {
     }
     return (
         <>

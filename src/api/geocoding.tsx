@@ -2,7 +2,12 @@ import axios from 'axios';
 const apiKey = import.meta.env.VITE_GEOCODE_API_KEY;
 const apiUrl = import.meta.env.VITE_GEOCODING_URL;
 
-export async function fetchGeocoding(query: string) {
+type GeocodingResponse = {
+    lat: number;
+    lng: number;
+}
+
+export async function fetchGeocoding(query: string): Promise<GeocodingResponse> {
     try {
         const rawResponse = await axios.get(`${apiUrl}?q=${query}&key=${apiKey}`);
         const response = rawResponse.data.results[0].geometry;
